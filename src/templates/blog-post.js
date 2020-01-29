@@ -48,6 +48,7 @@ class BlogPostTemplate extends React.Component {
               )}
               <h1>{post.frontmatter.title}</h1>
               <p>{post.frontmatter.date}</p>
+              <p>{post.timeToRead} minute read.</p>
               <span />
             </ArticleHeader>
             <Article>
@@ -90,6 +91,7 @@ export const pageQuery = graphql`
     markdownRemark(fields: { slug: { eq: $slug } }) {
       id
       html
+      timeToRead
       frontmatter {
         title
         date(formatString: "MMMM DD, YYYY")
